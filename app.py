@@ -54,5 +54,6 @@ def upload_file():
     return jsonify({'success': f'Arquivo {filename} foi recebido', 'url': blob.public_url}), 200
 
 if __name__ == "__main__":
-    api.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # A porta é definida automaticamente pelo Railway
+    api.run(host="0.0.0.0", port=port, debug=True)
 
