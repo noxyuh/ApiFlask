@@ -19,7 +19,7 @@ if cred_json:
 else:
     raise Exception('GOOGLE_APPLICATION_CREDENTIALS_JSON não foi encontrada nas variáveis de ambiente')
 
-api = Flask(__name__)
+app = Flask(__name__)
 
 
 ALLOWED_EXTENSIONS = {'png', 'jpeg', 'jpg'}
@@ -29,11 +29,11 @@ def allowedFile(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@api.route("/", methods=["GET"])
+@app.route("/", methods=["GET"])
 def home():
     return jsonify({"message": "API está funcionando"}), 200
 
-@api.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
         return jsonify({'error': 'Nenhum arquivo encontrado'}), 400
@@ -58,5 +58,5 @@ def upload_file():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    api.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=True)
 
