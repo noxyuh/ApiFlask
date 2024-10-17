@@ -5,7 +5,6 @@ import firebase_admin
 from firebase_admin import credentials, storage
 from werkzeug.utils import secure_filename
 
-# Carrega as credenciais do Firebase a partir da variável de ambiente
 cred_json = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS_JSON')
 
 if cred_json:
@@ -29,6 +28,10 @@ ALLOWED_EXTENSIONS = {'png', 'jpeg', 'jpg'}
 def allowedFile(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
+@api.route("/", methods=["GET"])
+def home():
+    return jsonify({"message": "API está funcionando"}), 200
 
 @api.route('/upload', methods=['POST'])
 def upload_file():
@@ -54,6 +57,6 @@ def upload_file():
     return jsonify({'success': f'Arquivo {filename} foi recebido', 'url': blob.public_url}), 200
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # A porta é definida automaticamente pelo Railway
+    port = int(os.environ.get("PORT", 5000))
     api.run(host="0.0.0.0", port=port, debug=True)
 
