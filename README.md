@@ -5,11 +5,11 @@ This is a simple API for uploading and retrieving images, developed by [Rafael](
 ## API Endpoints
 
 ### 1. GET Request
-- **URL**: [`https://api-flask-eight.vercel.app`](https://api-flask-eight.vercel.app)
+- **URL**: 
 - **Description**: Retrieves available data or serves as a health check for the API.
 
 ### 2. POST Request
-- **URL**: [`https://api-flask-eight.vercel.app/upload`](https://api-flask-eight.vercel.app/upload)
+- **URL**:
 - **Description**: Uploads an image file (JPEG, JPG, or PNG).
 - **How to use**:
     1. Set the request method to **POST**.
