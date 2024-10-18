@@ -1,6 +1,6 @@
 # File Upload API
 
-This is a simple API for uploading and retrieving images, developed by [Rafael](https://github.com/ddavi1) in collaboration with the QA team.
+This is a simple API for uploading and retrieving images, developed by [Rafael]((https://github.com/noxyuh)) in collaboration with the QA team.
 
 ## API Endpoints
 
